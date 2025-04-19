@@ -7,9 +7,9 @@ hand_detector = mp.solutions.hands.Hands()
 drawing_utils = mp.solutions.drawing_utils
 screen_width, screen_height = pyautogui.size()
 index_y_prev, index_x_prev = 0, 0
-smoothing_factor = 0.7
+smoothing_factor = 0.5
 click_threshold = 50
-click_delay = 0.1
+click_delay = 1
 movement_threshold = 70 #px
 
 landmark_drawing_spec = drawing_utils.DrawingSpec(color=(255, 0, 0), thickness=2, circle_radius=2)
@@ -17,7 +17,7 @@ landmark_drawing_spec = drawing_utils.DrawingSpec(color=(255, 0, 0), thickness=2
 while True:
 
     ret, frame = cap.read()
-    frame = cv2.flip(frame, 1)
+    frame = cv2.flip(frame, 1) # otherwise left and right movement would be opposite
     frame_height, frame_width, ret = frame.shape
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     output = hand_detector.process(rgb_frame)
