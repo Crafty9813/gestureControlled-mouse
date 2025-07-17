@@ -1,3 +1,4 @@
+# This is an example from Google's documentation
 import cv2
 import mediapipe as mp
 
