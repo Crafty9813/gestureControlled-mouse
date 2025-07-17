@@ -1,5 +1,5 @@
-#Got this from google's mediapipe api
-#can make gestures like hearts and balloons
+# Got this from google's mediapipe API
+# Can make gestures like hearts and balloons lol
 
 import cv2
 import mediapipe as mp
@@ -21,7 +21,7 @@ with mp_hands.Hands(
     results = hands.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
 
 
-    #idk what handedness is for
+    # Idk what handedness is for
     '''
     #Print handedness and draw hand landmarks on the image.
     print('Handedness:', results.multi_handedness)
