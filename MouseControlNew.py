@@ -18,7 +18,7 @@ while True:
 
     ret, frame = cap.read()
     #frame.flags.writeable = False
-    frame = cv2.flip(frame, 1) # otherwise left and right movement would be opposite
+    frame = cv2.flip(frame, 1) # Otherwise left and right movement would be opposite
     frame_height, frame_width, ret = frame.shape
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     output = hand_detector.process(rgb_frame)
@@ -78,7 +78,7 @@ while True:
                     pyautogui.sleep(click_delay)
 
 
-            # right click if middle and index touch
+            # Right click if middle and index touch
             if middle_tip and index_tip:
                 distance = abs(middle_tip[1] - index_tip[1])
                 if (distance < click_threshold):
@@ -86,7 +86,7 @@ while True:
                     pyautogui.rightClick()
                     pyautogui.sleep(click_delay)
 
-            #scroll down if pinky and thumb pinch
+            # Scroll down if pinky and thumb pinch
             if pinky_tip and thumb_tip:
                 distance = abs(pinky_tip[1] - thumb_tip[1])
                 if distance < click_threshold:
